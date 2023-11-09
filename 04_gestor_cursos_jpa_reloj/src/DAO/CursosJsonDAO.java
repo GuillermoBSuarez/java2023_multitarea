@@ -11,12 +11,12 @@ import java.util.stream.Stream;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import model.Curso;
+import model.Pedido;
 import serialización.DeserializadorFecha;
 
 public class CursosJsonDAO {
 	
-	public Stream<Curso> getCursos(){
+	public Stream<Pedido> getCursos(){
 		String ruta = "c:\\temp\\cursosfecha.json";
 		// Gson gson = new Gson();
 		
@@ -26,7 +26,7 @@ public class CursosJsonDAO {
 				.create();	
 		
 		try ( FileReader fr = new FileReader(ruta); ){
-			Curso[] cursos = gson.fromJson(fr, Curso[].class);
+			Pedido[] cursos = gson.fromJson(fr, Pedido[].class);
 			return Arrays.stream(cursos);
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -34,7 +34,7 @@ public class CursosJsonDAO {
 		}
 	}
 	
-	public List<Curso> cursos() {
+	public List<Pedido> cursos() {
 		return getCursos().collect(Collectors.toList());
 	}
 }

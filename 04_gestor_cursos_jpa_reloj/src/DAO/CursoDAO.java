@@ -3,15 +3,15 @@ package DAO;
 import java.time.LocalDate;
 import java.util.List;
 
-import model.Curso;
+import model.Pedido;
 
 public interface CursoDAO {
 
 	boolean existeCurso(int idCurso);
 
-	boolean guardarCurso(Curso curso);
+	boolean guardarCurso(Pedido curso);
 
-	List<Curso> cursos();
+	List<Pedido> cursos();
 
-	List<Curso> cursos(LocalDate fechainicio, LocalDate fechafin);
+	List<Pedido> cursos(LocalDate fechainicio, LocalDate fechafin);
 }

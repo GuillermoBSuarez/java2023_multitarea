@@ -5,7 +5,7 @@ import java.util.List;
 
 import DAO.CursosJsonDAO;
 import model.Alumno;
-import model.Curso;
+import model.Pedido;
 
 public class FormacionServiceImpl implements FormacionService {
 	@Override
@@ -30,13 +30,13 @@ public class FormacionServiceImpl implements FormacionService {
 	}
 	
 	@Override
-	public List<Curso> listadoCursos(){
+	public List<Pedido> listadoCursos(){
 		var cs = DAOFactory.getCursoDAO();
 		return cs.cursos();				
 	}
 
 	@Override
-	public List<Curso> listadoCursos(LocalDate fechaInicio, LocalDate fechaFin){
+	public List<Pedido> listadoCursos(LocalDate fechaInicio, LocalDate fechaFin){
 		var cs = DAOFactory.getCursoDAO();
 		LocalDate Inicio, Fin;
 		if (fechaInicio.isBefore(fechaFin)) {		// Si las fechas se han metido en el orden correcto...

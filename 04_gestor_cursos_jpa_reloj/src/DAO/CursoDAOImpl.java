@@ -14,7 +14,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
-import model.Curso;
+import model.Pedido;
 
 public class CursoDAOImpl implements CursoDAO {
 	
@@ -22,11 +22,11 @@ public class CursoDAOImpl implements CursoDAO {
 	public boolean existeCurso(int idCurso) {
 		/*Curso curso = getEntityManager().find(Curso.class, idCurso);
 		return alumno;*/
-		return getEntityManager().find(Curso.class, idCurso)!=null;
+		return getEntityManager().find(Pedido.class, idCurso)!=null;
 	}
 	
 	@Override
-	public boolean guardarCurso(Curso curso) {
+	public boolean guardarCurso(Pedido curso) {
 		try {
 			/* OJO: ESTO NO FUNCIONA
 			 * EntityTransaction et = getEntityManager().getTransaction();
@@ -48,18 +48,18 @@ public class CursoDAOImpl implements CursoDAO {
 	}
 	
 	@Override
-	public List<Curso> cursos(){
+	public List<Pedido> cursos(){
 		// Cómo hacer esto se ve en el ejercicio 10_2
 		// No hace falta transaction, sólo es lectura
 		return getEntityManager()
-				.createQuery("select c from Curso c", Curso.class)
+				.createQuery("select c from Curso c", Pedido.class)
 				.getResultList();
 	}
 	
 	@Override
-	public List<Curso> cursos(LocalDate fechaInicio, LocalDate fechaFin){
+	public List<Pedido> cursos(LocalDate fechaInicio, LocalDate fechaFin){
 		return getEntityManager()
-				.createQuery("select c from Curso c where c.fechaInicio between ?1 and ?2", Curso.class)
+				.createQuery("select c from Curso c where c.fechaInicio between ?1 and ?2", Pedido.class)
 				.setParameter(1, fechaInicio)
 				.setParameter(2, fechaFin)
 				.getResultList();

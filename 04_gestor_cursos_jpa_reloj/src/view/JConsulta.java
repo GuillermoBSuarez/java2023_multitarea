@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-import model.Curso;
+import model.Pedido;
 import view.adapters.ComboCursosModel;
 import view.adapters.TablaAlumnosModel;
 
@@ -35,12 +35,12 @@ public class JConsulta extends JFrame {
 		lblCursos.setBounds(121, 33, 54, 14);
 		contentPane.add(lblCursos);
 		
-		JComboBox<Curso> cbCursos = new JComboBox<Curso>();
+		JComboBox<Pedido> cbCursos = new JComboBox<Pedido>();
 		cbCursos.setBounds(200, 29, 131, 22);
 		cbCursos.setModel( new ComboCursosModel() );
 		cbCursos.addItemListener( new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Curso curso = (Curso) cbCursos.getSelectedItem();
+				Pedido curso = (Pedido) cbCursos.getSelectedItem();
 				tbAlumnos.setModel( new TablaAlumnosModel( curso.getIdCurso() ) );
 			}
 		});

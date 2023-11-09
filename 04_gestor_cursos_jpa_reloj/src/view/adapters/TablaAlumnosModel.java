@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 
 import DAO.AlumnoDAO;
 import model.Alumno;
-import model.Curso;
+import model.Pedido;
 import service.FormacionService;
 import service.FormacionServiceFactory;
 

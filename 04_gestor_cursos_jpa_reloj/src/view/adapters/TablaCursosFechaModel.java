@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import model.Curso;
+import model.Pedido;
 import service.FormacionServiceFactory;
 
 public class TablaCursosFechaModel extends AbstractTableModel {
 
 	private static final long serialVersionUID = 1L;
-	List<Curso> cursos;
+	List<Pedido> cursos;
 	
 	// CONSTRUCTOR
 	public TablaCursosFechaModel() {

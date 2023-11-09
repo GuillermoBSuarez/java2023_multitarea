@@ -5,19 +5,19 @@ import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 
-import model.Curso;
+import model.Pedido;
 import service.FormacionServiceFactory;
 
-public class ComboCursosModel extends DefaultComboBoxModel<Curso> {
+public class ComboCursosModel extends DefaultComboBoxModel<Pedido> {
 
 	private static final long serialVersionUID = 1L;
-	List<Curso> cursos;
+	List<Pedido> cursos;
 	
 	// CONSTRUCTOR
 	public ComboCursosModel() {
 		// cursos = new ArrayList<>(new FormacionService().listadoCursos());
 		cursos = new ArrayList<>(FormacionServiceFactory.getFormacionService().listadoCursos());
-		cursos.add(0, new Curso(0, "-Todos-", 0, 0, null, null));
+		cursos.add(0, new Pedido(0, "-Todos-", 0, 0, null, null));
 	}
 	
 	@Override
@@ -26,7 +26,7 @@ public class ComboCursosModel extends DefaultComboBoxModel<Curso> {
 	}
 
 	@Override
-	public Curso getElementAt(int index) {
+	public Pedido getElementAt(int index) {
 		return cursos.get(index);
 	}
 }

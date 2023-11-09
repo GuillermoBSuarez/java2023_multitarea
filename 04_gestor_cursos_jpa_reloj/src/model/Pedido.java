@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="cursos")
 
-public class Curso {
+public class Pedido {
 
 	@Id
 	private int idCurso;
