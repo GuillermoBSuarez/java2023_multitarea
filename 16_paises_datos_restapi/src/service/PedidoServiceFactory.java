@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.Pais;
 
-public interface PaisesService {
+public interface PedidoServiceFactory {
 	List<String> continentes();
 	List<Pais> paises();
 	List<Pais> paises(String continente);

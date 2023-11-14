@@ -7,7 +7,7 @@ import java.util.List;
 
 import model.Pais;
 
-public class PaisesServiceImpl implements PaisesService {
+public class PaisesServiceImpl implements PedidoServiceFactory {
 
 	@Override
 	public List<String> continentes() {

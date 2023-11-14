@@ -2,7 +2,7 @@ package service;
 
 public class PaisesServiceFactory {
 	
-	public static PaisesService getPaisesService() {
+	public static PedidoServiceFactory getPaisesService() {
 		return new PaisesServiceImpl();
 	}
 }
