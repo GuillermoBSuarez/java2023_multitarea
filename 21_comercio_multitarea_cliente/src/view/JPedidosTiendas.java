@@ -1,23 +1,27 @@
 package view;
 
 import java.awt.EventQueue;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JComboBox;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import view.adapters.ComboTiendasModel;
 import view.adapters.TablaPedidosModel;
 
 public class JPedidosTiendas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField txtTienda;
+	private JButton btnPedidos;
 	private JTable tbPedidos;
 
 	public static void main(String[] args) {
@@ -34,7 +38,6 @@ public class JPedidosTiendas extends JFrame {
 	}
 
 	public JPedidosTiendas() {
-		setTitle("Pedidos por tiendas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -43,26 +46,30 @@ public class JPedidosTiendas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox cbTiendas = new JComboBox();
-		cbTiendas.setBounds(138, 11, 165, 22);
-		cbTiendas.setModel(new ComboTiendasModel());
-		cbTiendas.addItemListener( new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				tbPedidos.setModel(new TablaPedidosModel(cbTiendas.getSelectedItem().toString()));
+		JLabel lblNewLabel = new JLabel("Introduce nombre de tienda:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel.setBounds(126, 34, 196, 14);
+		contentPane.add(lblNewLabel);
+		
+		txtTienda = new JTextField();
+		txtTienda.setBounds(127, 59, 161, 20);
+		contentPane.add(txtTienda);
+		txtTienda.setColumns(10);
+		
+		btnPedidos = new JButton("Ver pedidos");
+		btnPedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tbPedidos.setModel(new TablaPedidosModel(txtTienda.getText()));
 			}
 		});
-		contentPane.add(cbTiendas);
+		btnPedidos.setBounds(91, 101, 168, 23);
+		contentPane.add(btnPedidos);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(398, 248, -349, -175);
+		scrollPane.setBounds(73, 146, 285, 104);
 		contentPane.add(scrollPane);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(27, 70, 374, 167);
-		contentPane.add(scrollPane_1);
-		
 		tbPedidos = new JTable();
-		scrollPane_1.setViewportView(tbPedidos);
+		scrollPane.setViewportView(tbPedidos);
 	}
 }

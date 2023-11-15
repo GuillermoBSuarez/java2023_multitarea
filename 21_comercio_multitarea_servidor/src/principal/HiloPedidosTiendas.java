@@ -16,7 +16,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.google.gson.reflect.TypeToken;
 
 import model.Pedido;
 import service.PedidoService;
@@ -34,15 +33,14 @@ public class HiloPedidosTiendas implements Runnable {
 	public void run() {
 
 		try ( socket;
-			  PrintStream out = new PrintStream(socket.getOutputStream());
-			  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));) {
+			  PrintStream out=new PrintStream(socket.getOutputStream());
+			  BufferedReader bf=new BufferedReader(new InputStreamReader(socket.getInputStream())); ) {
 
 			PedidoService ps = PedidoServiceFactory.getPedidoService();
-			out.println(serializarLista(ps.pedidosTienda(br.readLine())));
 
-			/* out.println(gson.toJson(ps.pedidosTienda("tienda1"))); NO FUNCIONA por el LocalDate.
-			Hace falta un serializador que convierta el objeto a String formateado.
-			Por eso la clase serializadora de abajo y la nueva versión del out. */
+			List<Pedido> pedidos = ps.pedidosTienda(bf.readLine());
+			
+			out.println(serializarLista(pedidos));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}

@@ -11,6 +11,7 @@ import model.Pedido;
 
 public class PedidoServiceImpl implements PedidoService {
 	
+	@Override
 	public List<Pedido> pedidosTienda(String tienda) {
 		return getEntityManager()
 				.createQuery("select p from Pedido p where p.tienda = ?1", Pedido.class)
@@ -35,5 +36,5 @@ public class PedidoServiceImpl implements PedidoService {
 		et.begin();
 		em.persist(pedido);
 		et.commit();
-	} 
+	}
 }

@@ -12,8 +12,7 @@ public class TablaPedidosModel extends AbstractTableModel {
 
 	private static final long serialVersionUID = 1L;
 	List<Pedido> pedidos;
-	
-	// CONSTRUCTOR
+
 	public TablaPedidosModel(String tienda) {
 		pedidos = PedidoServiceFactory.getPedidoService().pedidosTienda(tienda);
 	}
@@ -25,39 +24,36 @@ public class TablaPedidosModel extends AbstractTableModel {
 
 	@Override
 	public int getColumnCount() {
-		return 4;
+		return 3;
 	}
 
 	@Override
 	public String getColumnName(int column) {
-		return switch (column) {
-			case 0 -> "Pedido";
-			case 1 -> "Producto";
-			case 2 -> "Fecha";
-			case 3 -> "Precio";
-			default -> "Indeterminado";
-		};
+		switch (column) {
+			case 0 -> { return "Producto"; }
+			case 1 -> { return "Precio"; }
+			case 2 -> { return "Fecha pedido"; }
+			default -> { return "Indeterminada"; }
+		}
 	}
-	
+
 	@Override
 	public Object getValueAt(int row, int column) {
 		switch (column) {
-			case 0: return pedidos.get(row).getIdPedido();
-			case 1: return pedidos.get(row).getProducto();
-			case 2: return pedidos.get(row).getFechaPedido();
-			case 3: return pedidos.get(row).getPrecio();
-			default: return null;
+			case 0 -> { return pedidos.get(row).getProducto(); }
+			case 1 -> { return pedidos.get(row).getPrecio(); }
+			case 2 -> { return pedidos.get(row).getFechaPedido(); }
+			default -> { return null; }
 		}
 	}
 
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 		switch (columnIndex) {
-			case 0: return int.class;
-			case 1: return String.class;
-			case 2: return LocalDate.class;
-			case 3: return double.class;
-			default: return null;
+			case 0 -> { return String.class; }
+			case 1 -> { return Double.class; }
+			case 2 -> { return LocalDate.class; }
+			default -> { return null; }
 		}
 	}
 }
