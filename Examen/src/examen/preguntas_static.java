@@ -20,3 +20,6 @@ class Test{
 		m2();				// Un elemento no estático no puede acceder a uno estático.
 	}
 }
+
+
+
