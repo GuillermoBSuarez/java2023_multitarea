@@ -1,6 +1,6 @@
 package examen;
 
-public class preguntas_static {
+public class preguntas02_static {
 
 }
 

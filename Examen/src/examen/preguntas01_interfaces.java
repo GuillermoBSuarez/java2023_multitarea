@@ -58,5 +58,4 @@ class A extends C1 implements I2{
 	void m(){}						// Sobreescritura con error porque reduce el ámbito, era público por defecto en la interfaz y aquí es default
 	public int p(String s)			// Sobrecarga, el cambio en el tipo de devolución no se tiene en cuenta
 	public void p(){}				// Sobreescritura con error porque es el mismo, exacto, que el heredado
-
 }
