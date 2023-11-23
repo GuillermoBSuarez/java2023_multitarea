@@ -32,7 +32,7 @@ public class pruebas10_listas {
 		// Tres formas:
 //		lst.sort((a,b) -> b.getAge()-a.getAge());
 //		lst.sort((a,b) -> Integer.compare(b.getAge(), a.getAge()));
-		lst.sort(Comparator.comparingInt(a->((Alumno) a).getAge()).reversed());
+//		lst.sort(Comparator.comparingInt(a->((Alumno) a).getAge()).reversed());
 		lst.forEach(a->System.out.println(a.getName()));
 	}
 }
