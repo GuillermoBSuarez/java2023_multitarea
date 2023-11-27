@@ -9,18 +9,18 @@ package pruebas13_genericos;
 
 import java.util.ArrayList;
 
-public class pila<T> {
-	ArrayList<T> pila = new ArrayList<T>();
+public class Pila<T> {
+	ArrayList<T> pila = new ArrayList<>();
 	
-	public pila() {
-	}
-
 	public void agregar(T dato) {
 		pila.add(dato);
 	}
 	
-	public T elimina() {
-		T t = pila..size()-1
-		pila.remove(pila.size()-1);
+	public T sacar() {
+		return pila.remove(pila.size()-1);
+	}
+	
+	public int total() {
+		return pila.size(); 
 	}
 }
