@@ -1,0 +1,2 @@
+Primero creamos los model-info.java de cada proyecto empezando por el model porque no depende de ningún otro.
+Una vez creado debemos exportar el .jar que importarán los otros proyectos.
